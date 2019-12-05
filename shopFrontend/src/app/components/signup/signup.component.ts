@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MasumService } from '../../Services/masum.service';
+import { TokenService } from 'src/app/Services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'router',
@@ -15,14 +17,22 @@ export class SignupComponent implements OnInit {
 
   };
   public error=null;
-  constructor(private Masum:MasumService) { }
+  constructor(
+    private Masum:MasumService,
+    private Token:TokenService,
+    private router:Router
+    ) { }
   onSubmit(){
     this.Masum.signup(this.form).subscribe(
-      data=>console.log(data),
+      data=>this.handleResponse(data),
       error=>this.handleError(error) 
     );
   }
-
+  handleResponse(data)
+  {
+    this.Token.handle(data.access_token);
+    this.router.navigateByUrl('/profile');
+  }
   handleError(error){
     this.error=error.error.error;
   }

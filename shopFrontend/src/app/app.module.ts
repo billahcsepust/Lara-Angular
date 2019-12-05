@@ -14,6 +14,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { MasumService } from './Services/masum.service';
 import { TokenService } from './Services/token.service';
+import { AuthService } from './Services/auth.service';
+import { AfterLoginService } from './Services/after-login.service';
+import { BeforeLoginService } from './Services/before-login.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { TokenService } from './Services/token.service';
   ],
   providers: [
   MasumService,
-  TokenService
+  TokenService,
+  AuthService,
+  AfterLoginService,
+  BeforeLoginService
 ],
   bootstrap: [AppComponent]
 })
