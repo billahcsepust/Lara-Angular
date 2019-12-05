@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="mt-4 col-8 offset-2">
+    <div class="card">
+        <div class="card-header">Login Here</div>
+        <div class="card-body">
+                <form #loginForm=ngForm (ngSubmit)="onSubmit()">
+
+                  <div class="alert alert-danger" [hidden]="!error">
+                    {{error}}
+
+                  </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="form.email" required>
+                       </div>
+
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" name="password" class="form-control" id="exampleInputPassword1"[(ngModel)]="form.password" required>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Sign In</button>
+                            <a routerLink="/signup" class="btn btn-info float-right" >Sign up</a>
+                        </div>
+                        
+                    </form>
+        </div>
+    </div>
+</div>

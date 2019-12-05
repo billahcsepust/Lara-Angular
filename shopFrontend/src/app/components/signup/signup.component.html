@@ -1,1 +1,42 @@
-<p>signup works!</p>
+<div class="mt-4 col-8 offset-2">
+        <div class="card">
+            <div class="card-header">SignUp Here</div>
+            <div class="card-body">
+                    <form #signupForm=ngForm (ngSubmit)="onSubmit()">
+    
+                            <div class="alert alert-danger" [hidden]="!error">
+                                    {{error}}
+                              </div>
+                           
+                           <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" name="email" placeholder="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="form.email" required>
+                               
+                             </div>
+                             <div class="form-group">
+                                    <label for="exampleInputName1">Name</label>
+                                    <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name" aria-describedby="nameHelp" [(ngModel)]="form.name" required>
+                                    
+                                 </div>
+    
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="password" name="password" placeholder="Password" class="form-control" id="exampleInputPassword1"[(ngModel)]="form.password" required>
+                              
+                            </div>
+                            <div class="form-group">
+                                    <label for="exampleInputPassword_Confirmation1">Confirm Password</label>
+                                    <input type="password" placeholder="Confirmation Password" name="password_confirmation" class="form-control" id="exampleInputPassword_Confirmation1"[(ngModel)]="form.password_confirmation" required>
+                                   
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign Up</button>
+                                <a routerLink="/login" class="btn btn-info float-right" >Sign In</a>
+
+                            </div>
+                            
+                        </form>
+            </div>
+        </div>
+    </div>
+    
