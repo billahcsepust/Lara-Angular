@@ -5,14 +5,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MasumService {
-  private useUrl='http://localhost:8000/api';
+  private baseUrl='http://localhost:8000/api';
   constructor(private http:HttpClient) { }
   signup(data)
   {
-    return this.http.post(`${this.useUrl}/signup`,data);
+    return this.http.post(`${this.baseUrl}/signup`,data);
   }
   login(data)
   {
-    return this.http.post(`${this.useUrl}/login`,data);
+    return this.http.post(`${this.baseUrl}/login`,data);
+  }
+  sendPasswordResetLink(data)
+  {
+    return this.http.post(`${this.baseUrl}/sendPasswordResetLink`,data);
   }
 }
